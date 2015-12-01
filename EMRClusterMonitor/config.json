@@ -1,0 +1,30 @@
+[
+	{
+		"name": "EMR Segment Builder 2 (54.225.100.212)",
+		"ip": "54.225.100.212"
+	},
+	{
+		"name": "EMR Segment Builder 1 (54.235.253.42)",
+		"ip": "54.235.253.42"
+	},
+	{
+		"name": "EMR Segment Builder 3 (54.225.238.200)",
+		"ip": "54.225.238.200"
+	},
+	{
+		"name": "EMR Segment Builder 4 (54.204.33.82)",
+		"ip": "54.204.33.82"
+	},
+	{
+		"name": "EMR Segment Builder 5 (107.21.92.81)",
+		"ip": "107.21.92.81"
+	},
+	{
+		"name": "EMR Segment Builder 6 (54.235.72.42)",
+		"ip": "54.235.72.42"
+	},
+	{
+		"name": "EMR Segment Builder 7 (54.204.46.37)",
+		"ip": "54.204.46.37"
+	}
+]
