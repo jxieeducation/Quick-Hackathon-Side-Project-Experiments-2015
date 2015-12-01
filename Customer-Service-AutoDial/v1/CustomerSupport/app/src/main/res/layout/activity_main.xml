@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <TextView android:text="@string/hello_world"
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneNumber"
+        android:layout_marginTop="20dp"
+        android:text="Call" />
+
+    <Button
+        android:id="@+id/dial"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/call"
+        android:layout_marginTop="20dp"
+        android:text="Call With Extension AutoDial" />
+
+    <Button
+        android:id="@+id/dial2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dial"
+        android:layout_marginTop="20dp"
+        android:text="Call With Extension Popup" />
+
+</RelativeLayout>
