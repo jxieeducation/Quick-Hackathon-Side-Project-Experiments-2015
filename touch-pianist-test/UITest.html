@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!-- polyfill -->
+	<script src="inc/shim/Base64.js" type="text/javascript"></script>
+	<script src="inc/shim/Base64binary.js" type="text/javascript"></script>
+	<script src="inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+	<!-- midi.js package -->
+	<script src="js/midi/audioDetect.js" type="text/javascript"></script>
+	<script src="js/midi/gm.js" type="text/javascript"></script>
+	<script src="js/midi/loader.js" type="text/javascript"></script>
+	<script src="js/midi/plugin.audiotag.js" type="text/javascript"></script>
+	<script src="js/midi/plugin.webaudio.js" type="text/javascript"></script>
+	<script src="js/midi/plugin.webmidi.js" type="text/javascript"></script>
+	<!-- utils -->
+	<script src="js/util/dom_request_xhr.js" type="text/javascript"></script>
+	<script src="js/util/dom_request_script.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+MIDI.loadPlugin({
+  instrument: "acoustic_grand_piano",
+  onprogress: function(state, progress) {
+    console.log(state, progress);
+  },
+  onsuccess: function() {
+    document.onmousemove = getMouseXY;
+
+    var tempX = 0;
+    var tempY = 0;
+    //http://www.vibrationdata.com/tutorials/piano.pdf - mario
+    //http://i.ytimg.com/vi/Vg89W3zWixQ/hqdefault.jpg - birthday song
+    var chords = [
+      //chord 1
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['E4']],
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['G4']],
+      [MIDI.keyToNote['Gb4']], //wrong note, this is f sharp
+      //chord 2
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['E4']],
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['A4']],
+      [MIDI.keyToNote['G4']],
+      //chord 3
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['D4']],
+      [MIDI.keyToNote['D5']],
+      [MIDI.keyToNote['B4']],
+      [MIDI.keyToNote['G4']],
+      [MIDI.keyToNote['Gb4']], //wrong note
+      [MIDI.keyToNote['E4']],
+      //chord 4
+      [MIDI.keyToNote['C5']],
+      [MIDI.keyToNote['C5']],
+      [MIDI.keyToNote['B4']],
+      [MIDI.keyToNote['G4']],
+      [MIDI.keyToNote['A4']],
+      [MIDI.keyToNote['G4']],
+
+      [],
+      [],
+    ];
+    var pointer = 0;
+    var delay = 0; // play one note every quarter second
+    var velocity = 70; // how hard the note hits
+    var positionRatio = 1;
+
+    function getMouseXY(e) {
+        maxY = screen.height;
+        Y = e.pageY;
+        if (tempX < 0){tempX = 0};
+        if (tempY < 0){tempY = 0};
+        positionRatio = 1 - Y / maxY;
+        console.log(positionRatio);
+    }
+
+    function playNextChord() {
+      // Putting this here because MIDI SUCKS and doesn't let you can't change the volume while you are holding the chord
+      MIDI.setVolume(0, 100 * positionRatio);
+      MIDI.chordOn(0, chords[pointer], velocity, delay);
+    }
+
+    function killChord() {
+      MIDI.chordOff(0, chords[pointer], delay + 0.75);
+      pointer = (pointer + 1) % chords.length;
+    }
+
+    $(document).mousedown(function(e) {
+        console.log("mouse down");
+        mouseDown = true;
+        playNextChord();
+    });
+    $(document).mouseup(function(e) {
+        console.log("mouse up");
+        mouseDown = false;
+        killChord();
+    });
+  }
+});
+
+</script>
+</body>
+</html>
