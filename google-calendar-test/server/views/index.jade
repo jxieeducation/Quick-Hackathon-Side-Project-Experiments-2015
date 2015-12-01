@@ -1,0 +1,12 @@
+extends layout
+
+block body
+	div(class="module", style="margin-bottom:30px;")
+		div(class="innermodule")
+			h2(style="display:inline;") Number of People Connected: 
+			h2(id='num_connection', style="display:inline;") ?
+			div(class="messagebox")
+				p(class='message') Calculating meeting time / waiting for other ppl to log in
+	
+	script(src='/socket.io/socket.io.js')
+	script(src='js/base.js')
