@@ -1,0 +1,68 @@
+{
+  "manifest_version": 2,
+  "theme": {
+    "images": {
+      "theme_frame": "images\/theme_frame.png",
+      "theme_toolbar": "images\/theme_toolbar.png",
+      "theme_tab_background": "images\/theme_tab_background.png",
+      "theme_ntp_background": "images\/theme_ntp_background.png"
+    },
+    "colors": {
+      "frame": [
+        35,
+        2,
+        2
+      ],
+      "toolbar": [
+        239,
+        239,
+        239
+      ],
+      "tab_text": [
+        5,
+        6,
+        9
+      ],
+      "tab_background_text": [
+        251,
+        251,
+        251
+      ],
+      "bookmark_text": [
+        20,
+        20,
+        20
+      ],
+      "ntp_background": [
+        255,
+        255,
+        255
+      ],
+      "ntp_text": [
+        30,
+        16,
+        239
+      ],
+      "button_background": [
+        255,
+        255,
+        255,
+        0
+      ]
+    },
+    "tints": {
+      "buttons": [
+        0,
+        0,
+        1
+      ]
+    },
+    "properties": {
+      "ntp_background_alignment": "top",
+      "ntp_background_repeat": "no-repeat"
+    }
+  },
+  "name": "Hackathon Hackers",
+  "version": "1",
+  "description": "A Hackathon Hackers Chrome Theme"
+}
