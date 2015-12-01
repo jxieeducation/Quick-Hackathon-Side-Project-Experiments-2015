@@ -1,0 +1,11 @@
+hadoop fs -copyFromLocal /home/hadoop/EMRStack/5000-8.txt /
+hadoop fs -ls /
+
+python:
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -file mapper.py -mapper mapper.py -file reducer.py -reducer reducer.py -input /5000-8.txt -output /da-vinci-notes.txt
+hadoop fs -cat /da-vinci-notes.txt/* | sort -k 2 -n -r  | head -20
+
+java:
+mvn clean install -Dmaven.compiler.source=1.7 -Dmaven.compiler.target=1.7
+
+hadoop jar WordCount-1.0.jar wpmcn.hadoop.WordCount /EMRStack/5000-8.txt /EMRStack/da-vinci-hadoop-out/
