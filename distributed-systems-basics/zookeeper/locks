@@ -1,0 +1,28 @@
+READ: 
+
+
+    Call create( ) to create a node with pathname "_locknode_/read-". This is the lock node use later in the protocol. Make sure to set both the sequence and ephemeral flags.
+
+    Call getChildren( ) on the lock node without setting the watch flag - this is important, as it avoids the herd effect.
+
+    If there are no children with a pathname starting with "write-" and having a lower sequence number than the node created in step 1, the client has the lock and can exit the protocol.
+
+    Otherwise, call exists( ), with watch flag, set on the node in lock directory with pathname staring with "write-" having the next lowest sequence number.
+
+    If exists( ) returns false, goto step 2.
+
+    Otherwise, wait for a notification for the pathname from the previous step before going to step 2
+
+
+WRITE:
+
+
+    Call create( ) to create a node with pathname "_locknode_/write-". This is the lock node spoken of later in the protocol. Make sure to set both sequence and ephemeral flags.
+
+    Call getChildren( ) on the lock node without setting the watch flag - this is important, as it avoids the herd effect.
+
+    If there are no children with a lower sequence number than the node created in step 1, the client has the lock and the client exits the protocol.
+
+    Call exists( ), with watch flag set, on the node with the pathname that has the next lowest sequence number.
+
+    If exists( ) returns false, goto step 2. Otherwise, wait for a notification for the pathname from the previous step before going to step 2.

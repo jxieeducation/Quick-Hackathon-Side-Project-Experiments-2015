@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: write something
+      command: touch /home/jason/Desktop/rtbkit-stack/ansible/test.txt
+      notify: add content
+      register: troll
+
+    - name: troll regarless
+      copy: content="MEGA TROLOLOLOL" dest=/home/jason/Desktop/rtbkit-stack/ansible/test.txt
+      when: troll|failed
+
+  handlers:
+    - name: start nginx
+      service: name=nginx state=started
+
+    - name: add content
+      copy: content="TROLOLOL" dest=/home/jason/Desktop/rtbkit-stack/ansible/test.txt

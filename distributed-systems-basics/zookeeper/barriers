@@ -1,0 +1,7 @@
+Client calls the ZooKeeper API's exists() function on the barrier node, with watch set to true.
+
+If exists() returns false, the barrier is gone and the client proceeds
+
+Else, if exists() returns true, the clients wait for a watch event from ZooKeeper for the barrier node.
+
+When the watch event is triggered, the client reissues the exists( ) call, again waiting until the barrier node is removed

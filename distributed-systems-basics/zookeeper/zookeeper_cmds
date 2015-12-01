@@ -1,0 +1,26 @@
+sudo service zookeeper-server init
+sudo service zookeeper-server start
+zookeeper-client
+
+basic k-v store
+- create /zk-demo ''
+- create /zk-demo/my-node 'Hello!'
+- set /zk-demo/my-node 'Goodbye!'
+- get /zk-demo/my-node
+- delete /zk-demo/my-node
+- ls /zk-demo
+- create -s /zk-demo/sequential one
+- create -s /zk-demo/sequential two
+
+ephemeral node gets deleted when the connected node stops
+- create -e -s /zk-demo/ephemeral data
+- sudo service zookeeper-server stop
+- sudo service zookeeper-server start
+- ls /zk-demo
+
+watches
+- create /zk-demo/watch-this data
+- get /zk-demo/watch-this true
+
+
+
