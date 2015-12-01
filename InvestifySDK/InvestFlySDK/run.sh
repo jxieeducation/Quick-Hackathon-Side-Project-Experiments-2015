@@ -1,0 +1,2 @@
+#!/bin/sh
+java -classpath "lib/investfly-client.jar:lib/validation-api-1.1.0.Final.jar:lib/spring-web-4.1.0.RELEASE.jar:lib/spring-core-4.1.0.RELEASE.jar:lib/spring-beans-4.1.0.RELEASE.jar:lib/httpclient-4.3.5.jar:lib/jackson-core-asl-1.9.2.jar:lib/jackson-mapper-asl-1.9.2.jar:lib/jackson-core-2.3.3.jar:lib/jackson-databind-2.3.3.jar:lib/jackson-annotations-2.3.0.jar:lib/commons-logging-1.1.1.jar:lib/httpcore-4.3.2.jar:lib/log4j-1.2.17.jar:lib/commons-codec-1.9.jar:lib/log4j.properties:classes" com.investfly.api.samples.StrategiesExecutor

@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/httpcore-4.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/httpclient-4.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-web-4.1.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-4.1.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/investfly-client.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/validation-api-1.1.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-4.1.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
