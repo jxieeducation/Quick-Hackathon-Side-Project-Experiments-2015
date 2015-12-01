@@ -1,0 +1,34 @@
+veda server API usage:
+
+0. /showall - GET
+returns all the logs the server has stored, for development purposes
+
+
+1. /register - GET
+registers the client with the server
+
+server will then return the following information to client:
+* population - int - number of clients communicating with the server (inclusive)
+* status - int - status of the client
+	- 101 = success
+	- 102 = already registered
+	- 103 = failure
+* id - int - the id that the server assigns the client
+* logs - list(string) - what the current document looks like
+
+
+2. /put/{id} - POST
+delivers the updates made on the client side to the server
+parameters:
+* version - int - lastest version number issued by the server
+* logs - list(string) - input to push to database
+
+if version is up-to-date with the server: (return parameters)
+* newversion - int - new version number that the server has updated to
+* status - int - status of the server (e.g. 200 = good, 602 = server shutting down soon)
+
+if version is not up-to-date:
+* serverversion - int - what version the server is on
+* status - int - status of server
+* logs - list(string) - a list of logs that the client must first update on
+

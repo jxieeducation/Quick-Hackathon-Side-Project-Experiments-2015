@@ -1,0 +1,10 @@
+
+March 4, 2015:
+- (jason) read up on jot.js and sharedJS for json OT
+
+March 3, 2015:
+- (jason) added 2 example api usage
+- (jason) contacted / gathered opionion
+
+March 2, 2015:
+- (jason) created basic server template

@@ -1,0 +1,29 @@
+example 2 - simple photoshop
+
+1. serialization (convert objects to a continuous string):
+
+- a picture is made up of layers
+- each layer contains a frame
+- a frame is a series of transformations applied upon a background
+
+e.g. http://bit.ly/1KeZpEb
+
+layer 1 = couple photo = (add photo.jpg), (shift right by 300px)
+layer 2 = forest background = (add forest.jpg), (enlarge to cover frame)
+
+photo = {1. [(add photo.jpg), (shift right by 300px)], 2. [(add forest.jpg), (enlarge to cover frame)]}
+
+
+2. updates:
+{[(add photo.jpg), (shift right by 300px)]} --> 
+{[(add photo.jpg), (shift right by 300px)], [(add forest.jpg), (enlarge to cover frame)]}
+
+*note, this update is rudimentary. simply adding a background to the couple's photo
+
+OT update: (1. s 43, 2. i ", [(add forest.jpg), (enlarge to cover frame)]")
+
+let "|" be the cursor
+1. |{[(add photo.jpg), (shift right by 300px)]}
+2. {[(add photo.jpg), (shift right by 300px)]|}
+3. {[(add photo.jpg), (shift right by 300px)]|, [(add forest.jpg), (enlarge to cover frame)]}
+final: {[(add photo.jpg), (shift right by 300px)], [(add forest.jpg), (enlarge to cover frame)]}
